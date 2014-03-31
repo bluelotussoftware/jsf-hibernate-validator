@@ -1,33 +1,70 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>String Validators</title>
     </h:head>
     <h:body>
-        <h1>String Validators</h1>
-        <h2>@NotNull</h2>
-        <p>
-            Note to make this work in JSF, you need to set a parameter in the configuration to tell JSF to interpret empty Strings as <code>null</code>.
-        </p>
-        <pre>
+        <f:view locale="#{indexBean.locale}">
+            <h1>String Validators</h1>
+            <h:form id="localeForm">
+                <p>Please select a Locale for displaying validation messages:</p>
+                <h:selectOneMenu value="#{indexBean.locale}" onchange="submit();">
+                    <f:selectItem itemLabel="English" itemValue="en"/>
+                    <f:selectItem itemLabel="Deutsch" itemValue="de"/>
+                    <f:selectItem itemLabel="Español" itemValue="es"/>
+                </h:selectOneMenu>
+            </h:form>
+            <h2>@NotNull</h2>
+            <p>
+                This validator ensures that the input is not <code>null</code>. This does not check to make sure that it is not an empty string.
+            </p>
+            <p>
+                <strong>Note:</strong> to make this example work in JSF, you need to set a context parameter in the <strong>web.xml</strong> configuration to tell JSF to interpret empty Strings as <code>null</code>.
+            </p>
+            <pre>
      &lt;context-param&gt;
           &lt;param-name&gt;javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL&lt;/param-name&gt;
           &lt;param-value&gt;true&lt;/param-value&gt;
      &lt;/context-param&gt;
-        </pre>
-        <h:form id="form1">
-            <h:inputText id="inputText1" value="#{indexBean.value}"/><br/>
-            <h:message for="inputText1"/><br/>
-            <h:commandButton value="Submit"/>
-        </h:form>
-        <h2>@NotEmpty</h2>
-        <h:form id="form2">
-            <h:inputText id="inputText2" value="#{indexBean.value2}"/><br/>
-            <h:message for="inputText2"/><br/>
-            <h:commandButton value="Submit"/>
-        </h:form>
+            </pre>
+            <h:form id="form1">
+                <p><strong>DO NOT ENTER ANYTHING</strong>, press Submit</p>
+                <h:inputText id="inputText1" value="#{indexBean.value}"/><br/>
+                <h:message for="inputText1"/><br/>
+                <h:commandButton value="Submit"/>
+            </h:form>
+            <h2>@NotEmpty</h2>
+            <p>
+                This validator causes a lot of confusion. The value can not be <code>null</code>, but can be any character including whitespace, e.g. You can enter a space, and it will accept it.
+            </p>
+            <h:form id="form2">
+                <ol>
+                    <li><strong>DO NOT ENTER ANYTHING</strong>, press Submit</li>
+                    <li>Enter a space, press Submit</li>
+                </ol>
+                <h:inputText id="inputText2" value="#{indexBean.value2}"/><br/>
+                <h:message for="inputText2"/><br/>
+                <h:commandButton value="Submit"/>
+            </h:form>
+            <h2>@NotBlank</h2>
+            <p>
+                This is the most useful of them from my standpoint. This makes sure that the input is not <code>null</code>, and is not an empty string like white spaces.
+            </p>
+            <h:form id="form3">
+                <h:inputText id="inputText3" value="#{indexBean.value3}"/><br/>
+                <h:message for="inputText3"/><br/>
+                <h:commandButton value="Submit"/>
+            </h:form>
+
+            <h:form id="form4">
+                <h:inputText id="inputText4" value="#{indexBean.value4}"/><br/>
+                <h:message for="inputText4"/><br/>
+                <h:commandButton value="Submit"/>
+            </h:form>
+        </f:view>
     </h:body>
 </html>
 
