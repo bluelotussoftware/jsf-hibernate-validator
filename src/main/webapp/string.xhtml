@@ -9,6 +9,8 @@
     <h:body>
         <f:view locale="#{indexBean.locale}">
             <h1>String Validators</h1>
+            <h:link outcome="index" value="Home"/>
+            <br/>
             <h:form id="localeForm">
                 <p>Please select a Locale for displaying validation messages:</p>
                 <h:selectOneMenu value="#{indexBean.locale}" onchange="submit();">
@@ -31,6 +33,7 @@
      &lt;/context-param&gt;
             </pre>
             <h:form id="form1">
+                <h3>Instructions</h3>
                 <p><strong>DO NOT ENTER ANYTHING</strong>, press Submit</p>
                 <h:inputText id="inputText1" value="#{indexBean.value}"/><br/>
                 <h:message for="inputText1"/><br/>
@@ -41,9 +44,10 @@
                 This validator causes a lot of confusion. The value can not be <code>null</code>, but can be any character including whitespace, e.g. You can enter a space, and it will accept it.
             </p>
             <h:form id="form2">
+                <h3>Instructions</h3>
                 <ol>
                     <li><strong>DO NOT ENTER ANYTHING</strong>, press Submit</li>
-                    <li>Enter a space, press Submit</li>
+                    <li>Enter a space or spaces, press Submit</li>
                 </ol>
                 <h:inputText id="inputText2" value="#{indexBean.value2}"/><br/>
                 <h:message for="inputText2"/><br/>
@@ -53,17 +57,34 @@
             <p>
                 This is the most useful of them from my standpoint. This makes sure that the input is not <code>null</code>, and is not an empty string like white spaces.
             </p>
+            <p>
+                The message has a modified validation message that is overridden in the <strong>ValidationMessages.properties</strong> file.
+            </p>
+            <h3>Instructions</h3>
+            <ol>
+                <li><strong>DO NOT ENTER ANYTHING</strong>, press Submit</li>
+                <li>Enter a space, or spaces press Submit</li>
+            </ol>
             <h:form id="form3">
                 <h:inputText id="inputText3" value="#{indexBean.value3}"/><br/>
                 <h:message for="inputText3"/><br/>
                 <h:commandButton value="Submit"/>
             </h:form>
 
+            <p>This example has a customized message that was added to the <strong>ValidationMessages.properties</strong> file.</p>
+            <h3>Instructions</h3>
+            <ol>
+                <li><strong>DO NOT ENTER ANYTHING</strong>, press Submit</li>
+                <li>Enter a space, or spaces press Submit</li>
+            </ol>
+
             <h:form id="form4">
                 <h:inputText id="inputText4" value="#{indexBean.value4}"/><br/>
                 <h:message for="inputText4"/><br/>
                 <h:commandButton value="Submit"/>
             </h:form>
+            <br/>
+            <h:link outcome="index" value="Home"/>
         </f:view>
     </h:body>
 </html>
