@@ -7,13 +7,13 @@
         <title>String Validators</title>
     </h:head>
     <h:body>
-        <f:view locale="#{indexBean.locale}">
+        <f:view locale="#{sessionBean.locale}">
             <h1>String Validators</h1>
             <h:link outcome="index" value="Home"/>
             <br/>
             <h:form id="localeForm">
                 <p>Please select a Locale for displaying validation messages:</p>
-                <h:selectOneMenu value="#{indexBean.locale}" onchange="submit();">
+                <h:selectOneMenu value="#{sessionBean.locale}" onchange="submit();">
                     <f:selectItem itemLabel="English" itemValue="en"/>
                     <f:selectItem itemLabel="Deutsch" itemValue="de"/>
                     <f:selectItem itemLabel="Español" itemValue="es"/>

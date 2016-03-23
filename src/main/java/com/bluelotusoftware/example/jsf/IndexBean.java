@@ -17,7 +17,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class IndexBean implements Serializable {
 
     private static final long serialVersionUID = -730798292453234258L;
-    private String locale = "en";
 
     @NotNull
     private String value;
@@ -61,14 +60,6 @@ public class IndexBean implements Serializable {
 
     public void setValue4(String value4) {
         this.value4 = value4;
-    }
-
-    public String getLocale() {
-        return locale;
-    }
-
-    public void setLocale(String locale) {
-        this.locale = locale;
     }
 
 }
