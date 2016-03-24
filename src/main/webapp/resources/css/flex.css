@@ -50,6 +50,7 @@ html, body {
 
 .sidebar-left a {
     color: white;
+    text-decoration: none;
 }
 
 .splitter {     
