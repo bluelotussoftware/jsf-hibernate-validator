@@ -22,6 +22,7 @@ import javax.faces.bean.SessionScoped;
 /**
  *
  * @author John Yeary <jyeary@bluelotussoftware.com>
+ * @version 1.0
  */
 @ManagedBean
 @SessionScoped

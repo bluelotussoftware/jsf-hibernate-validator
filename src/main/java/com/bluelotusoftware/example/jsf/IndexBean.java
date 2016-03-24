@@ -42,6 +42,7 @@ public class IndexBean implements Serializable {
     private String value3;
     @NotBlank(message = "{BLANK}")
     private String value4;
+    private String src = "example1";
 
     public IndexBean() {
     }
@@ -76,6 +77,14 @@ public class IndexBean implements Serializable {
 
     public void setValue4(String value4) {
         this.value4 = value4;
+    }
+
+    public String getSrc() {
+        return src;
+    }
+
+    public void update(String source) {
+        this.src = source;
     }
 
 }

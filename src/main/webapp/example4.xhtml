@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h2>@NotBlank Custom Message</h2>
+    <p>This example has a customized message that was added to the <strong>ValidationMessages.properties</strong> file.</p>
+    <h3>Instructions</h3>
+    <ol>
+        <li><strong>DO NOT ENTER ANYTHING</strong>, press Submit</li>
+        <li>Enter a space, or spaces press Submit</li>
+    </ol>
+
+    <h:form id="form4">
+        <h:inputText id="inputText4" value="#{indexBean.value4}"/><br/>
+        <h:message for="inputText4"/><br/>
+        <h:commandButton value="Submit">
+            <f:ajax execute="@form" event="click" render="@form"/>
+        </h:commandButton>
+    </h:form>              
+</ui:composition>
